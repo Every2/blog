@@ -203,7 +203,7 @@ let pokemon_state = use_state_eq::<Option<Pokemon>, _>(|| None);
 
 ```
 
-Nesse trecho de código, note que as variáveis são copiadas, mas sua ownership foi movida para closure e o que isso quer dizer? EXATO, ela está no escopo da closure e não pode ser chamada... mas graças a deus, eu tenho uma pessoa muito especial que já mexe com Rust antes de mim e me ajudou me avisando sobre isso já que ela passou pelo mesmo problema e me ajudou a resolver, o código acabou ficando um pouco repetitivo, mas ficou assim:
+Nesse trecho de código, note que as variáveis são copiadas, mas sua ownership foi movida para closure e o que isso quer dizer? EXATO, ela está no escopo da closure e não pode ser chamada... mas graças a deus, uma pessoa me ajudou me avisando sobre isso já que ela passou pelo mesmo problema e me ajudou a resolver, o código acabou ficando um pouco repetitivo, mas ficou assim:
 ```Rust
 
 fn app() -> Html {
@@ -235,7 +235,7 @@ fn app() -> Html {
     });
 ```
 
-Bom, até aí resolvido, né? Só rodar e pronto... mas os POKÉMONS e as contagens estão desorganizadas! Droga... passei o dia inteiro e já estou morto. Depois de grandes discussões com a minha namorada, acabamos que não conseguimos resolver esses problemas e sinceramente, posso dizer que a melhor solução foi dar um tempo... com esse tempo dado consegui visualizar o problema de uma forma completamente diferente. Lembra que o Javascript até agora tinha sido um vilão? Então, nessa reta final ele se redimiu e virou o herói porque dando uma olhada no código acabei percebendo que a função para renderizar era desacoplada dos eventos e que a variável que devia estar sendo usada não era `search_state` e sim `pokemon_state` já que ambas funcionam diferente e em tempos diferentes, então é melhor usar pokemon_state para deixar tudo junto... e foi algo que passou completamente despercebido a princípio, mas vamos focar nas funções que foram o terror do dia, essa função:
+Bom, até aí resolvido, né? Só rodar e pronto... mas os POKÉMONS e as contagens estão desorganizadas! Droga... passei o dia inteiro e já estou morto. Acabei que não consegui resolver esses problemas e sinceramente, posso dizer que a melhor solução foi dar um tempo... com esse tempo dado consegui visualizar o problema de uma forma completamente diferente. Lembra que o Javascript até agora tinha sido um vilão? Então, nessa reta final ele se redimiu e virou o herói porque dando uma olhada no código acabei percebendo que a função para renderizar era desacoplada dos eventos e que a variável que devia estar sendo usada não era `search_state` e sim `pokemon_state` já que ambas funcionam diferente e em tempos diferentes, então é melhor usar pokemon_state para deixar tudo junto... e foi algo que passou completamente despercebido a princípio, mas vamos focar nas funções que foram o terror do dia, essa função:
 ```Rust 
 fn on_click(
     search_state_outer: UseStateHandle<i32>,
