@@ -16,9 +16,17 @@ Basicamente é como se fosse um aplicativo com html, css e js. Porém com a adi�
 # Tecnologias usadas
 
 [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) - Apesar de tudo, o HTML não é muito usado para nada além de funções de link.
+
+
 [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Estiliza o código assim como se fosse normalmente.
+
+
 [WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly) - Webassembly faz boa parte da "magica" do nosso aplicaitvo, fazendo desde de a interface entre Rust, browser e JS até o nosso server.
+
+
 [Trunk](https://trunkrs.dev/) - Trunk é um bundler para Webassembly com Rust, na nossa aplicação é vital para rodar o server e renderizar elementos do nosso HTML.
+
+
 [Rust](https://doc.rust-lang.org/book/) - Foi a linguagem escolhida, apesar de boa parte das funções serem adeptas do JS e virarem JS no final, o código ainda é bem no "estilo Rust" e usa bastante coisa da linguagem.
 
 # Como tudo começou?
